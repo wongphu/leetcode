@@ -33,20 +33,16 @@ object Solution {
     }
 
     def rec(range: Range): Int = {
-      //println("range: " + show(range))
       var trim = range
         .dropWhile(s(_) == ')') // remove lealing )'s
         .reverse
         .dropWhile(s(_) == '(')  // remove trailing ('s
         .reverse
                    
-      //println("trim:  " + show(trim))
-
       if (trim.isEmpty) {
         0
       } else {
         val (first, rest) = split(trim)
-        //println("first: " + show(first) + " rest: " + show(rest))
         max(first.size, rec(rest))
       }
     }
