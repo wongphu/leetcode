@@ -10,6 +10,7 @@ object Solution {
         loop(k-1, e, mod(a+i), mod(a+e+o+u), mod(i+u), a)
       }
     }
+
     loop(n, 1, 1, 1, 1, 1).toInt
   }
 }
