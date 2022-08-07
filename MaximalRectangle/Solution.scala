@@ -1,5 +1,5 @@
 object Solution {
-  import math.max
+  import math.{max, min}
   
   case class Segment(start: Int, end: Int) extends Ordered[Segment] {
     override def compare(that: Segment) =
@@ -12,7 +12,6 @@ object Solution {
     }
 
     def & (that: Segment): Option[Segment] = {
-      import math.{min, max}
       if (this.isDisjoint(that)) {
         None
       } else {
@@ -71,7 +70,7 @@ object Solution {
     val maxArea = rects
       .keys
       .map {
-        case (i,j) => (j-i+1) * rects((i,j)).map(_.size).foldLeft(0)(max(_,_))
+        case (i,j) => (j-i+1) * rects((i,j)).map(_.size).maxOption.getOrElse(0)
       }
       .max
     
