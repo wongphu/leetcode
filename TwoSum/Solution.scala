@@ -1,10 +1,9 @@
 object Solution {
-  import annotation.tailrec
   
   def twoSum(nums: Array[Int], target: Int): Array[Int] = {
     val sorted = nums.zipWithIndex.sorted
       
-    @tailrec
+    @annotation.tailrec
     def search(left: Int, right: Int): Array[Int] = {
       if (left >= right) {
         Array(-1,-1)
