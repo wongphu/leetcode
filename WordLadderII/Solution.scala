@@ -37,10 +37,7 @@ object Solution {
       }
       val ladders = frontiers.foldRight(List(List(endIndex))) { (frontier, lists) =>
         lists.flatMap { list =>
-          frontier
-            .toList
-            .filter(i => distance(i)(list.head) == 1)
-            .map(_ :: list)
+          (frontier & neighbors(list.head).toList.map(_ :: list)
         }
       }
     
